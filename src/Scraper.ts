@@ -20,44 +20,25 @@ async function scrapeWebsite(url: string): Promise<void> {
     $selected.find('tr').each((index, element) => {
 
       const $columns = $(element).find('.b-fight-details__table-col');
-      const fighter1 = $columns.eq(0).text().trim();
-      const fighter2 = $columns.eq(1).text().trim();
-      const sigStr1 = $columns.eq(2).text().trim();
-      const sigStr2 = $columns.eq(3).text().trim();
-      const sigStrPercent1 = $columns.eq(4).text().trim();
-      const sigStrPercent2 = $columns.eq(5).text().trim();
 
+      const fighter1 = {
+        name: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td.b-fight-details__table-col.l-page_align_left > p:nth-child(1)').text().trim(),
+        significantStrikes: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td:nth-child(3) > p:nth-child(1)').text().trim(),
+        significantStrikesPercent: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td:nth-child(4) > p:nth-child(1)').text().trim()
+      };
+      
+      // Extracting information for the second fighter
+      const fighter2 = {
+        name: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td.b-fight-details__table-col.l-page_align_left > p:nth-child(2)').text().trim(),
+        significantStrikes: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td:nth-child(3) > p:nth-child(2)').text().trim(),
+        significantStrikesPercent: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td:nth-child(4) > p:nth-child(2)').text().trim()
+      };
+      
+    
       console.log('Fighter 1:', fighter1);
       console.log('Fighter 2:', fighter2);
-      console.log('Significant Strikes 1:', sigStr1);
-      console.log('Significant Strikes 2:', sigStr2);
-      console.log('Significant Strikes % :', sigStrPercent1);
-      console.log('Significant Strikes % :', sigStrPercent2);
       console.log(''); // Separate each fighter's details with an empty line
     });
-
-    // Scraping for the total tables
-    const $totals = $('table.b-fight-details__table.js-fight-table tbody.b-fight-details__table-body');
-
-    $totals.find('tr').each((index, element) => {
-
-      const $columns = $(element).find('.b-fight-details__table-col');
-      const fighter1 = $columns.eq(0).text().trim();
-      const fighter2 = $columns.eq(1).text().trim();
-      const sigStr1 = $columns.eq(2).text().trim();
-      const sigStr2 = $columns.eq(3).text().trim();
-      const sigStrPercent1 = $columns.eq(4).text().trim();
-      const sigStrPercent2 = $columns.eq(5).text().trim();
-
-      console.log('Fighter 1:', fighter1);
-      console.log('Fighter 2:', fighter2);
-      console.log('Significant Strikes 1:', sigStr1);
-      console.log('Significant Strikes 2:', sigStr2);
-      console.log('Significant Strikes % 1:', sigStrPercent1);
-      console.log('Significant Strikes % 2:', sigStrPercent2);
-      console.log(''); // Separate each fighter's details with an empty line
-    });
-
   }
 
   catch (error) {
