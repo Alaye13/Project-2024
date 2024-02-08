@@ -52,7 +52,7 @@ async function scrapeWebsite(url: string): Promise<void> {
         controlTime: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td:nth-child(10) > p:nth-child(2)').text().trim()
       };
       
-    
+      console.log(start);
       console.log('Fighter 1:', fighter1);
       console.log('Fighter 2:', fighter2);
       console.log(''); // Separate each fighter's details with an empty line
@@ -64,8 +64,12 @@ async function scrapeWebsite(url: string): Promise<void> {
   }
 }
 
+async function scrapeSignificantStrike(url: string): Promise<void>{
+
+}
+
 // Replace 'https://example.com' with the URL you want to scrape
-const targetUrl = 'http://ufcstats.com/fight-details/5704e73f91b9e7f7';
+const targetUrl = 'http://ufcstats.com/fight-details/14e53999507c76a7';
 scrapeWebsite(targetUrl)
   .then(() => {
     console.log('Scraping complete.');

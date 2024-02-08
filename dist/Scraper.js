@@ -14,6 +14,11 @@ const cheerio = require("cheerio");
 //Fighter,sigStrike,sigStrikePercent,[next],[next]
 //Chris Gutierrez, 110 of 197, 45%, x, x
 //Alatengheili,38 of 133, 15%, x, x
+/**
+ * This method scrapes the website for Totals Stats
+ * It is sorted with @selector elements
+ * @param url
+ */
 function scrapeWebsite(url) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -47,6 +52,7 @@ function scrapeWebsite(url) {
                     reversal: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td:nth-child(9) > p:nth-child(2)').text().trim(),
                     controlTime: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td:nth-child(10) > p:nth-child(2)').text().trim()
                 };
+                console.log(start);
                 console.log('Fighter 1:', fighter1);
                 console.log('Fighter 2:', fighter2);
                 console.log(''); // Separate each fighter's details with an empty line
@@ -57,8 +63,12 @@ function scrapeWebsite(url) {
         }
     });
 }
+function scrapeSignificantStrike(url) {
+    return __awaiter(this, void 0, void 0, function* () {
+    });
+}
 // Replace 'https://example.com' with the URL you want to scrape
-const targetUrl = 'http://ufcstats.com/fight-details/5704e73f91b9e7f7';
+const targetUrl = 'http://ufcstats.com/fight-details/14e53999507c76a7';
 scrapeWebsite(targetUrl)
     .then(() => {
     console.log('Scraping complete.');
