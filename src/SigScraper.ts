@@ -16,7 +16,7 @@ export async function scrapeSignificantStrike(url: string): Promise<void> {
 
     $selected.find('tr').each((index, element) => {
 
-      const $columns = $(element).find('.b-fight-details__table-col');
+    const $columns = $(element).find('.b-fight-details__table-col');
 
       const fighter1 = {
         name: $('body > section > div > div > section:nth-child(4) > table > tbody > tr > td.b-fight-details__table-col.l-page_align_left > p:nth-child(1)').text().trim(),

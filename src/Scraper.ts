@@ -9,11 +9,6 @@ import scrapeWebsite from './LogicScrapers';
 //Chris Gutierrez, 110 of 197, 45%, x, x
 //Alatengheili,38 of 133, 15%, x, x
 
-/**
- * This method scrapes the website for Totals Stats 
- * It is sorted with @selector elements
- * @param url 
- */
 
 const targetUrls = [
   'http://ufcstats.com/fight-details/14e53999507c76a7',
